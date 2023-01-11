@@ -121,21 +121,21 @@
   color: #171717;
   font-size: 1.2em;
   border-left: 4px solid #fcca67;
-  background-color: #fef7ec;
+  background-color: #fef7ec95;
 }
 
 .notion-h1,
 .notion-h2,
 .notion-h3 {
-  margin-bottom: -0.7em;
+  margin-bottom: 0.25em;
 }
 
 .notion-callout {
-  margin: 0.75em 0;
+  margin: 0.7em 0;
 }
 
 .notion-hr {
-  margin: 2em 0;
+  margin: 0.7em 0;
 }
 
 @media only screen and (max-width: 920px) {
