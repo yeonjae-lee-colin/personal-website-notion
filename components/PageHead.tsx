@@ -1,6 +1,9 @@
 import * as React from 'react'
 import Head from 'next/head'
 
+import Script from 'next/script'
+import { useRouter } from 'next/router'
+
 import * as config from '@/lib/config'
 import * as types from '@/lib/types'
 import { getSocialImageUrl } from '@/lib/get-social-image-url'
@@ -19,9 +22,10 @@ export const PageHead: React.FC<
   description = description ?? site?.description
 
   const socialImageUrl = getSocialImageUrl(pageId) || image
-
+  
   return (
     <Head>
+      
       <meta charSet='utf-8' />
       <meta httpEquiv='Content-Type' content='text/html; charset=utf-8' />
       <meta
@@ -31,13 +35,34 @@ export const PageHead: React.FC<
 
       <meta name='robots' content='index,follow' />
       <meta property='og:type' content='website' />
-
+      
       {site && (
         <>
           <meta property='og:site_name' content={site.name} />
           <meta property='twitter:domain' content={site.domain} />
         </>
       )}
+
+
+{/* Global Site Tag (gtag.js) - Google Analytics */}
+   <script
+        async
+        src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GA_ID}`}
+      />
+      <script
+        dangerouslySetInnerHTML={{
+          __html: `
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', '${process.env.NEXT_PUBLIC_GA_ID}', {
+          page_path: window.location.pathname,
+        });
+        `
+        }}
+      />
+
+
 
       {config.twitter && (
         <meta name='twitter:creator' content={`@${config.twitter}`} />
