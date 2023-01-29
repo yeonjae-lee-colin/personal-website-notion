@@ -210,8 +210,9 @@
 .notion-page-cover-wrapper,
 .notion-page-cover-wrapper span,
 .notion-page-cover-wrapper img {
-  max-width: 1200px !important;
-  border-radius: 14px;
+/*   max-width: 1200px !important;
+  border-radius: 14px; */
+/*히어로영역     */
 }
 
 .notion-page-cover-wrapper {
